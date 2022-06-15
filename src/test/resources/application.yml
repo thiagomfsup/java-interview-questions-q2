@@ -1,0 +1,7 @@
+shortenUrl:
+  # time to live (in minutes)
+  timeToLive: 30
+  scheduledTask:
+    # Cron Expression (Spring Scheduling format)
+    # Execute every 30min.
+    cronExpression: "0 */30 * * * *"
