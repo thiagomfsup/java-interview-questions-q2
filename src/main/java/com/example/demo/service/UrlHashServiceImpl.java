@@ -24,8 +24,12 @@ public class UrlHashServiceImpl implements UrlHashService {
     public String generateHashForURL(URL originalUrl) {
         Objects.requireNonNull(originalUrl, "URL cannot be null");
 
+        StringBuilder sb = new StringBuilder();
+        sb.append(originalUrl.toString());
+        sb.append(System.currentTimeMillis());
+
         return DigestUtils
-                .md5DigestAsHex(originalUrl.toString().getBytes())
+                .md5DigestAsHex(sb.toString().getBytes())
                 .substring(0, HASH_LENGTH)
                 .toUpperCase();
     }
