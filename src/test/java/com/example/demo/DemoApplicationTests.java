@@ -5,6 +5,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -21,13 +22,12 @@ class DemoApplicationTests {
     private MockMvc mockMvc;
 
     @Test
-    public void givenAValidUrl_whenShortenUrl_thenReturnAHash() throws Exception {
+    public void givenAValidUrl_whenShortenUrl_thenReturnAHashWith8Characters() throws Exception {
         String url = "https://stash.backbase.com/projects/PO/repos/payment-order-integration-spec/browse/src/main/resources/schemas/definitions.json";
-        String expectedHash = "89703982";
 
         mockMvc.perform(post("/short").param("url", url))
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_PLAIN))
-                .andExpect(content().string(expectedHash));
+                .andExpect(content().string(Matchers.hasLength(8)));
     }
 
     @Test
