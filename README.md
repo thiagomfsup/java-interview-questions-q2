@@ -53,6 +53,6 @@ If the given hash doesn't identity an URL, this API returns `HTTP 404 Not Found`
 
 ## If I had enough time, I would...
 1. Sanitize URL (e.g. resolve URL encoding to avoid duplication).
-2. Implement a cache mechanism for increase response time for the most retrieved hashes (URLs).
+2. Implement a cache mechanism for increasing response time for the most retrieved hashes (URLs).
 3. Implement a mechanism for collecting statistics (e.g. how many times a URL has been retrieved).
 4. Solve problems when generating a Docker image for the project.

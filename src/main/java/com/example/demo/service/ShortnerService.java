@@ -18,7 +18,7 @@ public interface ShortnerService {
     /**
      * Retrieve the original URL from its hash.
      * 
-     * @param tiny
+     * @param hash
      * @return {@link Optional}
      */
     Optional<String> retrieveUrlByHash(String hash);
